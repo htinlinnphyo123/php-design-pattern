@@ -59,6 +59,9 @@ class PaymentGenerator
     }
 }
 
+// PaymentGenerator acts as a factory, responsible for creating payment gateway objects.
+// If a new gateway (e.g., CBPaymentGateway) is needed, we only need to update the factory.
+// The client code remains unchanged, as it relies on the factory to provide the correct payment gateway.
 $method = 'yoma';
 $paymentMethod = (new PaymentGenerator())->generatePayment($method);
 'Create Slip Method ' . '=>' . $paymentMethod->createSlip();
